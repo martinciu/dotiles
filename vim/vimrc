@@ -18,7 +18,7 @@ set nosmarttab             " fuck tabs
 set formatoptions+=n       " support for numbered/bullet lists
 set textwidth=80           " wrap at 80 chars by default
 set virtualedit=block      " allow virtual edit in visual block ..
-
+" imap <Tab> <C-N>
 
 " ----------------------------------------------------------------------------
 "  Remapping
@@ -64,7 +64,6 @@ set visualbell             " shut the fuck up
 set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set complete=.,t
-imap <Tab> <C-N>
 
 " ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file
@@ -92,3 +91,6 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 2     " working diectory is the newrest one with .git direcotry
 let g:ctrlp_match_window_reversed = 1 " matched file on top
 let g:ctrlp_switch_buffer = 2         " skip to file if oppened
+
+" gundo
+nnoremap <F5> :GundoToggle<CR>
