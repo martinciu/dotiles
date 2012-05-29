@@ -1,0 +1,38 @@
+[user]
+	name = Marcin Ciunelis
+	email = marcin.ciunelis@gmail.com
+[merge]
+	keepBackup = false;
+	tool = p4merge
+[mergetool "p4merge"]
+	cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+[diff]
+#	external = p4diff
+[core]
+	editor = vim
+	excludesfile = /Users/martinciu/.gitignore_global
+[color]
+	ui = true
+[alias]
+        headless = !sh -c 'git symbolic-ref HEAD refs/heads/$0 && rm .git/index && git clean -fdx'
+	s = status -sb
+	c = checkout
+	b = branch
+	ci = commit
+	unstage = reset HEAD --
+  l = log --pretty=format:\"%h | %ad | %s%d [%an]\" --date=local
+  h = log --pretty=format:\"%h | %ad | %s%d [%an]\" --graph --date=local
+  type = cat-file -t
+  dump = cat-file -p
+  
+[push]
+	default = current
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
